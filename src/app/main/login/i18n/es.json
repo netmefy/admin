@@ -1,0 +1,20 @@
+{
+    "LOGIN": {
+        "TITLE": "Conectate con tu cuenta.",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "REMEMBER_ME": "Recuerdame",
+        "FORGOT_PASSWORD": "Te olvidaste la contraseña?",
+        "LOG_IN": "ACCEDER",
+        "OR": "O",
+        "WITH_GOOGLE": "Accede con Google",
+        "WITH_FACEBOOK": "Accede com Facebook",
+        "DONT_HAVE_ACCOUNT": "No tenes cuenta?",
+        "CREATE_ACCOUNT": "Crear una cuenta",
+        "ERRORS": {
+            "EMAIL_REQUIRED": "El campo Email es requerido",
+            "EMAIL_MUST_VALID": "El Email debe tener una direccion valida de e-mail",
+            "PASSWORD_REQUIRED": "El campo contraseña es requerido"
+        }
+    }
+}
