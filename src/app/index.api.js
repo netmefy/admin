@@ -227,7 +227,7 @@
       function getTecnicos(client) {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/listado-tecnicos')
+        $http.get(api.baseUrl + '/api/ISP_Tecnicos')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
