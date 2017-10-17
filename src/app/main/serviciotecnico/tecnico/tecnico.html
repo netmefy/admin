@@ -25,6 +25,11 @@
         <input id="e-commerce-products-search" class="search-input" type="text" placeholder="Buscar"
                translate translate-attr-placeholder="TECNICO.SEARCH" flex>
       </div>
+      <div>
+        <md-button class="md-raised md-background"  ng-show="false">
+          <span>Crear Nuevo Técnico</span>
+        </md-button>
+      </div>
     </div>
     <!-- / CONTENT HEADER -->
 
@@ -59,17 +64,17 @@
             </th>
             <th class="secondary-text">
               <div class="table-header">
-                <span class="column-title"  translate="TECNICO.CALIFICACION">Calificación</span>
-              </div>
-            </th>
-            <th class="secondary-text">
-              <div class="table-header">
                 <span class="column-title"  translate="TECNICO.OTASIGNADAS">OT Asignadas</span>
               </div>
             </th>
             <th class="secondary-text">
               <div class="table-header">
                 <span class="column-title"  translate="TECNICO.OTCERRADAS">OT Cerradas</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title"  translate="TECNICO.CALIFICACION">Calificación</span>
               </div>
             </th>
           </tr>
@@ -79,9 +84,9 @@
             <td>{{tecnico.id}}</td>
             <td>{{tecnico.nombre}}</td>
             <td>{{tecnico.mail}}</td>
-            <td>{{tecnico.calificacion}}</td>
             <td>{{tecnico.otAsignadas}}</td>
             <td>{{tecnico.otCerradas}}</td>
+            <td>{{tecnico.calificacion}}</td>
           </tr>
           </tbody>
         </table>

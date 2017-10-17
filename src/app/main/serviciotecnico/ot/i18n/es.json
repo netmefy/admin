@@ -1,5 +1,18 @@
 {
     "OT": {
-        "OT_NAV": "Ordenes de Trabajo"
+        "OT_NAV": "Órdenes de Trabajo",
+        "TOTAL_OTS": "Total de OTs:",
+        "SEARCH": "Buscar",
+        "ADD_NEW_OT": "Crear Nueva OT",
+        "NUMERO_CLIENTE": "Número de Cliente",
+        "NOMBRE_CLIENTE": "Nombre de Cliente",
+        "TIPO_DE_ORDEN": "Tipo de Orden",
+        "FECHA_CREACION": "Fecha de Creación",
+        "FECHA_FINALIZACION": "Fecha de Finalización",
+        "TECNICO": "Técnico Asignado",
+        "CALIFICACION": "Calificación de OT",
+        "ESTADO": "Estado",
+        "ACCIONES": "Acciones",
+        "OT_DETAILS": "Detalles de OT"
     }
 }

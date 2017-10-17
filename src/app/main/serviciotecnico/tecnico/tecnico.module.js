@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.serviciotecnico.tecnico', [])
+        .module('app.serviciotecnico.tecnico', ['datatables'])
         .config(config);
 
     /** @ngInject */

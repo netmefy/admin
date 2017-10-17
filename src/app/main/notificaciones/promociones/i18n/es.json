@@ -1,5 +1,14 @@
 {
     "PROMOCIONES": {
-        "PROMOCIONES_NAV": "Promociones"
+        "PROMOCIONES_NAV": "Promociones",
+        "TOTAL_PROMOCIONES": "Total de Promociones:",
+        "SEARCH": "Buscar",
+        "ADD_NEW_PROMOCIONES": "Crear Nueva Promoción",
+        "NOMBRE": "Nombre",
+        "DESCRIPCION": "Descripción",
+        "CANTIDAD_USUARIOS": "Cantidad de Incluidos",
+        "ESTADO": "Estado",
+        "ACCIONES": "Acciones",
+        "PROMOCION_DETAILS": "Detalles de la Promoción"
     }
 }

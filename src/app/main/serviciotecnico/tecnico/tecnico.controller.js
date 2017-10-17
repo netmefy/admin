@@ -25,7 +25,7 @@
           },
           {
             // Target the quantity column
-            targets: 3,
+            targets: 5,
             render : function (data, type)
             {
               if ( type === 'display' )
@@ -71,8 +71,6 @@
 
       // Methods
       vm.getTecnicos = getTecnicos;
-      vm.gotoAddProduct = gotoAddProduct;
-      vm.gotoProductDetail = gotoProductDetail;
 
       //////////
 
@@ -89,23 +87,6 @@
           });
       }
 
-      /**
-       * Go to add product
-       */
-      function gotoAddProduct()
-      {
-        $state.go('app.e-commerce.products.add');
-      }
-
-      /**
-       * Go to product detail
-       *
-       * @param id
-       */
-      function gotoProductDetail(id)
-      {
-        $state.go('app.e-commerce.products.detail', {id: id});
-      }
 
       init();
     }

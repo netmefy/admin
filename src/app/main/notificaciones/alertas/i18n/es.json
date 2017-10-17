@@ -1,5 +1,14 @@
 {
-    "ALERTAS": {
-        "ALERTAS_NAV": "Alertas"
-    }
+  "ALERTAS": {
+    "ALERTAS_NAV": "Alertas",
+    "TOTAL_ALERTAS": "Total de Alertas:",
+    "SEARCH": "Buscar",
+    "ADD_NEW_ALERTAS": "Crear Nueva Alerta",
+    "NOMBRE": "Nombre",
+    "DESCRIPCION": "Descripción",
+    "CANTIDAD_USUARIOS": "Cantidad de Incluidos",
+    "ESTADO": "Estado",
+    "ACCIONES": "Acciones",
+    "ALERTA_DETAILS": "Detalles de la Alerta"
+  }
 }

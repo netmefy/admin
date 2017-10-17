@@ -1,5 +1,14 @@
 {
-    "ALERTAS": {
-        "ALERTAS_NAV": "Warnings"
-    }
+  "ALERTAS": {
+    "ALERTAS_NAV": "Warning",
+    "TOTAL_ALERTAS": "Total of Warnings:",
+    "SEARCH": "Search",
+    "ADD_NEW_ALERTAS": "New Warning",
+    "NOMBRE": "Name",
+    "DESCRIPCION": "Description",
+    "CANTIDAD_USUARIOS": "Users issued",
+    "ESTADO": "Status",
+    "ACCIONES": "Actions",
+    "Alerta_DETAILS": "Warning Details"
+  }
 }
