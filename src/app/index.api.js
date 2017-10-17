@@ -178,7 +178,10 @@
         var api = {
           loginAndGetToken:loginAndGetToken,
           getTipoUsuario:getTipoUsuario,
-          getTecnicos:getTecnicos
+          getTecnicos:getTecnicos,
+          getOTs:getOTs,
+          getAlertas:getAlertas,
+          getPromociones:getPromociones
         };
 
         // Base Url
@@ -224,10 +227,52 @@
         return deferred.promise;
       }
 
-      function getTecnicos(client) {
+      function getTecnicos() {
         var deferred = $q.defer();
 
         $http.get(api.baseUrl + '/api/ISP_Tecnicos')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getOTs() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Ots')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getAlertas() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Alertas')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getPromociones() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Promociones')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
