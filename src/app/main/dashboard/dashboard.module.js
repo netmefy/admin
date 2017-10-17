@@ -28,15 +28,15 @@
         msApiProvider.register('sample', ['app/data/sample/sample.json']);
 
         // Navigation
-        msNavigationServiceProvider.saveItem('fuse', {
-            title : 'DASHBOARD',
+        msNavigationServiceProvider.saveItem('principal', {
+            title : 'PRINCIPAL',
             group : true,
             weight: 1
         });
 
-        msNavigationServiceProvider.saveItem('fuse.dashboard', {
+        msNavigationServiceProvider.saveItem('principal.dashboard', {
             title    : 'Panel de Control',
-            icon     : 'icon-tile-four',
+            icon     : 'icon-view-dashboard',
             state    : 'app.dashboard',
             /*stateParams: {
                 'param1': 'page'

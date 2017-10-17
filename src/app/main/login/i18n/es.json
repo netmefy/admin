@@ -9,11 +9,11 @@
         "OR": "O",
         "WITH_GOOGLE": "Accede con Google",
         "WITH_FACEBOOK": "Accede com Facebook",
-        "DONT_HAVE_ACCOUNT": "No tenes cuenta?",
+        "DONT_HAVE_ACCOUNT": "No tenés cuenta?",
         "CREATE_ACCOUNT": "Crear una cuenta",
         "ERRORS": {
             "EMAIL_REQUIRED": "El campo Email es requerido",
-            "EMAIL_MUST_VALID": "El Email debe tener una direccion valida de e-mail",
+            "EMAIL_MUST_VALID": "El Email debe tener una dirección válida de e-mail",
             "PASSWORD_REQUIRED": "El campo contraseña es requerido"
         }
     }

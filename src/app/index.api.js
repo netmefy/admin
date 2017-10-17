@@ -7,7 +7,7 @@
         .factory('api', apiService);
 
     /** @ngInject */
-    function apiService($resource)
+    function apiService($resource, $http, $q, $localStorage)
     {
         /**
          * You can use this service to define your API urls. The "api" service
@@ -175,14 +175,68 @@
          *      }
          */
 
-        var api = {};
+        var api = {
+          loginAndGetToken:loginAndGetToken,
+          getTipoUsuario:getTipoUsuario,
+          getTecnicos:getTecnicos
+        };
 
         // Base Url
-        api.baseUrl = 'app/data/';
+        //api.baseUrl = 'app/data/';
+        api.baseUrl = 'http://200.82.0.24';
 
         // api.sample = $resource(api.baseUrl + 'sample/sample.json');
 
         return api;
+
+      function loginAndGetToken(client) {
+        var data = "grant_type=password&UserName=" + client.userName + "&Password=" + client.password + "&client_id=Utn.Ba$";
+        //alert("$scope.username:" + $scope.username);
+        //alert(data);
+        var url = api.baseUrl + '/oauth2/token';
+        console.log(url);
+        var deferred = $q.defer();
+        $http.post(url, data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+          .then(function (response) {
+
+            console.log(response);
+            deferred.resolve(response);
+
+          }).catch(function (err, status) {
+            //_logOut();
+            alert("ERRRR /token");
+            deferred.reject(err);
+          });
+        return deferred.promise;
+      }
+
+      function getTipoUsuario(client) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/tipoUsuarioApp?username=' + client)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getTecnicos(client) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/listado-tecnicos')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
     }
 
 })();

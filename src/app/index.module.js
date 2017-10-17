@@ -24,15 +24,16 @@
             'app.login',
 
           // Dashboard
-            'app.dashboard'
+            'app.dashboard',
 
-          /*// Notificaciones
-          'app.promociones',
+           //Notificaciones
+          'app.notificaciones',
 
-          // Promociones
-            'app.promociones',
+          //Servicio Tecnico
+          'app.serviciotecnico'
 
-          // Gestion de Ordenes de trabajo
+
+          /*// Gestion de Ordenes de trabajo
             'app.promociones'*/
         ]);
 })();

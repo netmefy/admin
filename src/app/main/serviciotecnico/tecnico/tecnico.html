@@ -1,0 +1,98 @@
+<div id="e-commerce-products" class="page-layout carded fullwidth" layout="row">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg md-accent-bg"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center" layout="column" flex>
+
+    <!-- CONTENT HEADER -->
+    <div class="header" layout="row" layout-align="space-between center">
+      <div class="white-fg" layout="column" layout-align="start start">
+        <div class="h1" layout="row" layout-align="start center">
+          <md-icon md-font-icon="icon-worker"></md-icon>
+          <span translate="TECNICO.TITULO">Técnicos</span>
+        </div>
+        <div class="product-count secondary-text">
+          <span translate="TECNICO.TOTALTECNICOS">Total de técnicos:</span>
+          <span>{{vm.tecnicos.length}}</span>
+        </div>
+      </div>
+
+      <div class="search" layout="row" layout-align="start center" flex>
+        <md-icon md-font-icon="icon-magnify" class="white-text icon search-icon"></md-icon>
+        <input id="e-commerce-products-search" class="search-input" type="text" placeholder="Buscar"
+               translate translate-attr-placeholder="TECNICO.SEARCH" flex>
+      </div>
+    </div>
+    <!-- / CONTENT HEADER -->
+
+    <!-- CONTENT CARD -->
+    <div class="content-card" layout="column" flex>
+
+      <!-- CONTENT TOOLBAR -->
+
+      <!-- / CONTENT TOOLBAR -->
+
+      <!-- CONTENT -->
+      <div class="content fullpage-datatable" layout="column" flex>
+
+        <table class="dataTable row-border hover" datatable="ng" dt-instance="vm.dtInstance"
+               dt-options="vm.dtOptions">
+          <thead>
+          <tr>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title" >ID</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title" translate="TECNICO.NOMBRE">Nombre</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title">Email</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title"  translate="TECNICO.CALIFICACION">Calificación</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title"  translate="TECNICO.OTASIGNADAS">OT Asignadas</span>
+              </div>
+            </th>
+            <th class="secondary-text">
+              <div class="table-header">
+                <span class="column-title"  translate="TECNICO.OTCERRADAS">OT Cerradas</span>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="tecnico in ::vm.tecnicos">
+            <td>{{tecnico.id}}</td>
+            <td>{{tecnico.nombre}}</td>
+            <td>{{tecnico.mail}}</td>
+            <td>{{tecnico.calificacion}}</td>
+            <td>{{tecnico.otAsignadas}}</td>
+            <td>{{tecnico.otCerradas}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <!-- / CONTENT -->
+
+    </div>
+    <!-- / CONTENT CARD -->
+
+  </div>
+  <!-- / CENTER -->
+
+</div>

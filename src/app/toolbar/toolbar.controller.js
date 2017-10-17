@@ -7,7 +7,7 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService)
+    function ToolbarController($rootScope, $q, $state, $timeout, $mdSidenav, $translate, $mdToast, msNavigationService, api, $localStorage)
     {
         var vm = this;
 
@@ -80,9 +80,14 @@
         {
             // Select the first status as a default
             vm.userStatus = vm.userStatusOptions[0];
-
             // Get the selected language directly from angular-translate module setting
             vm.selectedLanguage = vm.languages[$translate.preferredLanguage()];
+            api.getTipoUsuario($localStorage.email).then(
+              function (response) {
+                vm.userFullName = response.data.nombre;
+              }, function (error) {
+                alert("ERROR");
+              });
         }
 
 

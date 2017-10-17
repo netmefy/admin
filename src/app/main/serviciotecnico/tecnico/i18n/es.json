@@ -1,0 +1,14 @@
+{
+    "TECNICO": {
+        "TECNICO_NAV": "Técnicos",
+        "TITULO": "Técnicos",
+        "TOTALTECNICOS": "Total de técnicos: ",
+        "SEARCH": "Buscar",
+        "NOMBRE": "Nombre",
+        "CALIFICACION": "Calificación",
+        "ACTIVO": "Activo",
+        "ACCIONES": "Acciones",
+        "OTASIGNADAS": "OT Asignadas",
+        "OTCERRADAS": "OT Cerradas"
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "TECNICO": {
+    "TECNICO_NAV": "Workers",
+    "TITULO": "Workers",
+    "TOTALTECNICOS": "Total of workers: ",
+    "SEARCH": "Search",
+    "NOMBRE": "Name",
+    "CALIFICACION": "Score",
+    "ACTIVO": "Active",
+    "ACCIONES": "Actions",
+    "OTASIGNADAS": "WO Asigned",
+    "OTCERRADAS": "WO Closed"
+  }
+}

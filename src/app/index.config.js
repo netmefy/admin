@@ -7,7 +7,7 @@
         .config(config);
 
     /** @ngInject */
-    function config($translateProvider)
+    function config($translateProvider, $httpProvider)
     {
         // Put your common app configurations here
 
@@ -17,6 +17,7 @@
         });
         $translateProvider.preferredLanguage('es');
         $translateProvider.useSanitizeValueStrategy('sanitize');
+        $httpProvider.interceptors.push('httpRequestInterceptor');
     }
 
 })();
