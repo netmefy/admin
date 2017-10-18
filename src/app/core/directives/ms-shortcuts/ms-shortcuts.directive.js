@@ -202,7 +202,7 @@
             if ( angular.isUndefined(shortcuts) )
             {
                 shortcuts = [
-                    {
+                    /*{
                         'title'      : 'Sample',
                         'icon'       : 'icon-tile-four',
                         'state'      : 'app.sample',
@@ -212,7 +212,7 @@
                         '_path'      : 'apps.sample',
                         'uisref'     : 'app.sample',
                         'hasShortcut': true
-                    }
+                    }*/
                 ];
 
                 $cookies.put('FUSE.shortcuts', angular.toJson(shortcuts));
