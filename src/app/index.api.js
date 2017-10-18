@@ -181,7 +181,12 @@
           getTecnicos:getTecnicos,
           getOTs:getOTs,
           getAlertas:getAlertas,
-          getPromociones:getPromociones
+          getPromociones:getPromociones,
+          getReclamosActivos:getReclamosActivos,
+          getVelocidadPromedio:getVelocidadPromedio,
+          getCalificacionPromedio:getCalificacionPromedio,
+          getVelocidadesContratadas:getVelocidadesContratadas,
+          getSolicitudesActivas:getSolicitudesActivas
         };
 
         // Base Url
@@ -244,6 +249,76 @@
         var deferred = $q.defer();
 
         $http.get(api.baseUrl + '/api/ISP_Ots')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getReclamosActivos() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/Reclamos_Activos')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getSolicitudesActivas() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/Solicitudes_Activas')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getVelocidadPromedio() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/Velocidad_Promedio')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getCalificacionPromedio() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/Calificacion_Promedio')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getVelocidadesContratadas() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/Velocidades_Contratadas')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })

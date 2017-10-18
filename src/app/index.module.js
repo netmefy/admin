@@ -24,7 +24,7 @@
             'app.login',
 
           // Dashboard
-            'app.dashboard',
+            'app.dashboards',
 
            //Notificaciones
           'app.notificaciones',

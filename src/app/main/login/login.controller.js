@@ -29,7 +29,7 @@
           $localStorage.token = response.data.access_token;
           $localStorage.email = vm.form.email;
           $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.access_token;
-          $state.go('app.dashboard');
+          $state.go('app.dashboards_general');
         }, function (error) {
 
         });
