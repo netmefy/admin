@@ -11,7 +11,7 @@
     // Data
     vm.loginUser = loginUser;
     vm.logout = logout;
-
+    delete $http.defaults.headers.common.Authorization;
     // Methods
     init();
 

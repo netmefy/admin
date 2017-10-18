@@ -25,7 +25,7 @@
           },
           {
             // Target the quantity column
-            targets: 6,
+            targets: 7,
             render : function (data, type)
             {
               if ( type === 'display' )
@@ -53,7 +53,7 @@
           },
           {
             // Target the quantity column
-            targets: 7,
+            targets: 8,
             render : function (data, type)
             {
               if ( type === 'display' )
@@ -68,12 +68,20 @@
                 }
                 else if ( data == 'Cerrado' )
                 {
-                  return '<div class="quantity-indicator md-green-600-bg"></div><div>' + data + '</div>';
+                  return '<span class="text-boxed m-0 md-green-600-bg white-fg">' + data + '</span>';
                 }
               }
 
               return data;
             }
+          },
+          ,
+          {
+            // Target the actions column
+            targets           : 9,
+            responsivePriority: 1,
+            filterable        : false,
+            sortable          : false
           }
         ],
         initComplete: function ()

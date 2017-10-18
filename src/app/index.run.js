@@ -7,11 +7,11 @@
 
   /** @ngInject */
   function runBlock($rootScope, $timeout, $state, $location, $localStorage, $http) {
-
+    delete $http.defaults.headers.common.Authorization;
     if ($localStorage.token) {
       $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.token;
     }
-    
+
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
       if ($location.path() !== '/login' && !$localStorage.token) {
         $location.path('/login');

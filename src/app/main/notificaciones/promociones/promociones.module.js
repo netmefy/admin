@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.notificaciones.promociones', [])
+        .module('app.notificaciones.promociones', ['datatables'])
         .config(config);
 
     /** @ngInject */

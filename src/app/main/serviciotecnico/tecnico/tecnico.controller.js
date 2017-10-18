@@ -63,7 +63,7 @@
           }
         },
         pagingType  : 'simple',
-        lengthMenu  : [10, 20, 30, 50, 100],
+        lengthMenu  : [10, 50, 50, 20, 20, 10],
         pageLength  : 20,
         scrollY     : 'auto',
         responsive  : true

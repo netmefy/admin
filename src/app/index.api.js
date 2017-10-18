@@ -193,13 +193,12 @@
         return api;
 
       function loginAndGetToken(client) {
+        var deferred = $q.defer();
+        var header = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
         var data = "grant_type=password&UserName=" + client.userName + "&Password=" + client.password + "&client_id=Utn.Ba$";
-        //alert("$scope.username:" + $scope.username);
-        //alert(data);
         var url = api.baseUrl + '/oauth2/token';
         console.log(url);
-        var deferred = $q.defer();
-        $http.post(url, data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        $http.post(url, data, header)
           .then(function (response) {
 
             console.log(response);

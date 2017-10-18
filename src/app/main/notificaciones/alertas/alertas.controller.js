@@ -36,7 +36,7 @@
                 }
                 else if ( data == 'Activa' )
                 {
-                  return '<div class="quantity-indicator md-green-600-bg"></div><div>' + data + '</div>';
+                  return '<span class="text-boxed m-0 md-green-600-bg white-fg">' + data + '</span>';
                 }
               }
 
