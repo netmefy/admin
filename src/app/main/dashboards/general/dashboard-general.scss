@@ -1,7 +1,39 @@
 #dashboard-general {
-    padding: 12px;
 
-    #widgets {
+  > .center {
 
+    > .header {
+      height: 80px;
+      min-height: 80px;
+      max-height: 80px;
+      padding-bottom: 0;
+
+      .selected-zone {
+        background: rgba(0, 0, 0, 0.12);
+        color: #FFFFFF;
+        padding: 8px 16px;
+        height: 40px;
+        line-height: 24px;
+        font-size: 16px;
+      }
+
+      .zone-selector {
+        margin-left: 1px;
+        border-radius: 0;
+        background: rgba(0, 0, 0, 0.12);
+
+        md-icon {
+          color: #FFFFFF;
+        }
+      }
     }
+    .angular-google-map-container {
+      height: 520px;
+    }
+
+  }
+
+  #widgets {
+
+  }
 }

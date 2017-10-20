@@ -7,7 +7,8 @@
             [
                 // 3rd Party Dependencies
                 'nvd3',
-                'datatables'
+                'datatables',
+              'uiGmapgoogle-maps'
             ]
         )
         .config(config);

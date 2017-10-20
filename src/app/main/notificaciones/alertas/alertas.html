@@ -65,12 +65,12 @@
             </th>
             <th class="secondary-text">
               <div class="table-header">
-                <span class="column-title" translate="ALERTAS.CANTIDAD_USUARIOS">Cantidad de Incluidos</span>
+                <span class="column-title" translate="ALERTAS.FECHA">Fecha</span>
               </div>
             </th>
             <th class="secondary-text">
               <div class="table-header">
-                <span class="column-title" translate="ALERTAS.ESTADO">Estado</span>
+                <span class="column-title" translate="ALERTAS.CANTIDAD_USUARIOS">Cantidad de Incluidos</span>
               </div>
             </th>
             <th class="secondary-text">
@@ -85,8 +85,8 @@
             <td>{{alerta.id}}</td>
             <td>{{alerta.nombre}}</td>
             <td>{{alerta.descripcion}}</td>
+            <td>{{alerta.fechs}}</td>
             <td>{{alerta.cantidadDeUsuariosSuscriptos}}</td>
-            <td>{{alerta.estado}}</td>
             <td>
               <md-button class="edit-button md-icon-button" ng-click="vm.gotoAlertaDetail(alerta.id)" aria-label="Detalles de la Alerta"
                          translate translate-attr-aria-label="ALERTAS.ALERTA_DETAILS">

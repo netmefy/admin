@@ -24,26 +24,6 @@
             width  : '72px'
           },
           {
-            // Target the quantity column
-            targets: 4,
-            render : function (data, type)
-            {
-              if ( type === 'display' )
-              {
-                if ( data==  'Inactiva' )
-                {
-                  return '<span class="text-boxed m-0 md-orange-800-bg white-fg">' + data + '</span>';
-                }
-                else if ( data == 'Activa' )
-                {
-                  return '<span class="text-boxed m-0 md-green-600-bg white-fg">' + data + '</span>';
-                }
-              }
-
-              return data;
-            }
-          },
-          {
             // Target the actions column
             targets           : 5,
             responsivePriority: 1,

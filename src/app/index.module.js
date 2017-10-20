@@ -8,6 +8,7 @@
     angular
         .module('fuse', [
 
+          'uiGmapgoogle-maps',
             // Core
             'app.core',
 

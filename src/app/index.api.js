@@ -186,6 +186,12 @@
           getVelocidadPromedio:getVelocidadPromedio,
           getCalificacionPromedio:getCalificacionPromedio,
           getVelocidadesContratadas:getVelocidadesContratadas,
+          getOTsPerDay:getOTsPerDay,
+          getCantidadDeClientes:getCantidadDeClientes,
+          getZonasEnProblemas:getZonasEnProblemas,
+          getTopTecnicosByZone:getTopTecnicosByZone,
+          getTopLikesByZone:getTopLikesByZone,
+          getTopUsuariosReclamanByZone:getTopUsuariosReclamanByZone,
           getSolicitudesActivas:getSolicitudesActivas
         };
 
@@ -259,10 +265,10 @@
         return deferred.promise;
       }
 
-      function getReclamosActivos() {
+      function getReclamosActivos(zona) {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/Reclamos_Activos')
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -273,10 +279,10 @@
         return deferred.promise;
       }
 
-      function getSolicitudesActivas() {
+      function getSolicitudesActivas(zona) {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/Solicitudes_Activas')
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -287,10 +293,10 @@
         return deferred.promise;
       }
 
-      function getVelocidadPromedio() {
+      function getVelocidadPromedio(zona) {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/Velocidad_Promedio')
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -301,10 +307,10 @@
         return deferred.promise;
       }
 
-      function getCalificacionPromedio() {
+      function getCalificacionPromedio(zona) {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/Calificacion_Promedio')
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -315,10 +321,123 @@
         return deferred.promise;
       }
 
-      function getVelocidadesContratadas() {
+      function getVelocidadesContratadas(zona) {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/Velocidades_Contratadas')
+        $http.get(api.baseUrl + '/api/ISP_Velocidades_Contratadas?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+
+      function getOTsPerDay(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_OTs_x_Dia?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getCantidadDeClientes(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getZonasEnProblemas(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Zonas_Problemas')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getDispositivosConectados(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getEdadPromedio(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Stats?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getTopTecnicosByZone(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_TopTecnicos?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getTopLikesByZone(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Top_Paginas?id=' + zona)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getTopUsuariosReclamanByZone(zona) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Top_Clientes?id=' + zona)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -332,7 +451,7 @@
       function getAlertas() {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/ISP_Alertas')
+        $http.get(api.baseUrl + '/api/ISP_AlertasProm?id=Alerta')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -346,7 +465,7 @@
       function getPromociones() {
         var deferred = $q.defer();
 
-        $http.get(api.baseUrl + '/api/ISP_Promociones')
+        $http.get(api.baseUrl + '/api/ISP_AlertasProm?id=Promocion')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
