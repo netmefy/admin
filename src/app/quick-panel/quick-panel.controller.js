@@ -7,7 +7,7 @@
         .controller('QuickPanelController', QuickPanelController);
 
     /** @ngInject */
-    function QuickPanelController(msApi)
+    function QuickPanelController(api)
     {
         var vm = this;
 
@@ -19,33 +19,62 @@
             retro : true
         };
 
-        msApi.request('quickPanel.activities@get', {},
-            // Success
-            function (response)
-            {
-                vm.activities = response.data;
+      function refreshGoogleMaps() {
+        api.getZonasEnProblemas().then(
+          function (response) {
+            vm.zonesInDanger = [];
+            for (var i = 0; i < response.data.length; i++) {
+
+              var zone = {
+                localidad:response.data[i].nombreDeLocalidad,
+                clientes: response.data[i].cantidadDeUsuariosAfectados,
+                marker : {
+                  "id": i + 1,
+                  "coords": {
+                    "latitude": response.data[i].latitud,
+                    "longitude": response.data[i].longitud
+                  },
+                  "show": false,
+                  "sessions": response.data[i].cantidadDeUsuariosAfectados + " clientes afectados en la zona" + response.data[i].nombreDeLocalidad
+                }
+              };
+
+              vm.zonesInDanger.push(zone);
             }
-        );
 
-        msApi.request('quickPanel.events@get', {},
-            // Success
-            function (response)
-            {
-                vm.events = response.data;
-            }
-        );
+          }, function (error) {
+            alert("ERROR");
+          });
 
-        msApi.request('quickPanel.notes@get', {},
-            // Success
-            function (response)
-            {
-                vm.notes = response.data;
-            }
-        );
 
-        // Methods
 
-        //////////
+
+        api.getReclamosActivos("ARGENTINA").then(
+          function (response) {
+            vm.stats = [];
+            var stat = {
+              title:"Velocidad Promedio: ",
+              numeroAMostrar:response.data.velocidad,
+              porcentaje: response.data.velocidad,
+              color: "online"
+            };
+            var stat2 = {
+              title:"Calificación Promedio de los Técnicos: ",
+              numeroAMostrar:response.data.promedio,
+              porcentaje: (response.data.promedio * 100.0) / 5.0,
+              color: "warn"
+            };
+
+           vm.stats.push(stat);
+           vm.stats.push(stat2);
+
+
+          }, function (error) {
+            alert("ERROR");
+          });
+
+      }
+      refreshGoogleMaps();
     }
 
 })();

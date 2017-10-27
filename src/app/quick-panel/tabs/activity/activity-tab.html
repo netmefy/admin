@@ -1,14 +1,14 @@
 <md-list class="servers">
     <md-subheader class="md-no-sticky">
-        <span translate="QUICKPANEL.APP_SERVERS">Application Servers</span>
+        <span translate="QUICKPANEL.TITLE">Zonas en Alerta</span>
     </md-subheader>
 
-    <md-list-item class="server md-3-line" ng-repeat="server in vm.activities.servers">
-        <md-icon md-font-icon="icon-checkbox-blank-circle" class="s16 status" ng-class="server.status"></md-icon>
+    <md-list-item class="server md-3-line" ng-repeat="zone in vm.zonesInDanger">
+        <md-icon md-font-icon="icon-checkbox-blank-circle" class="s16 status warn" ></md-icon>
 
         <div class="md-list-item-text">
-            <h3>{{server.location}}</h3>
-            <p>{{server.detail}}</p>
+            <h3>{{zone.localidad}}</h3>
+            <p>Cantidad de clientes afectados: {{zone.clientes}}</p>
         </div>
     </md-list-item>
 </md-list>
@@ -17,14 +17,14 @@
 
 <md-list class="stats">
     <md-subheader class="md-no-sticky">
-        <span translate="QUICKPANEL.USER_STATS">User Stats</span>
+        <span translate="QUICKPANEL.USER_STATS">Estadisiticas</span>
     </md-subheader>
 
-    <md-list-item class="stat md-2-line" ng-repeat="stat in vm.activities.stats">
+    <md-list-item class="stat md-2-line" ng-repeat="stat in vm.stats">
         <div class="md-list-item-text">
-            <span>{{stat.title}} ({{stat.current}} / {{stat.total}})</span>
-            <md-progress-linear ng-class="stat.status" md-mode="determinate"
-                                value="{{stat.percent}}"></md-progress-linear>
+            <span>{{stat.title}} {{stat.numeroAMostrar}}</span>
+            <md-progress-linear ng-class="stat.color" md-mode="determinate"
+                                value="{{stat.porcentaje}}"></md-progress-linear>
         </div>
     </md-list-item>
 </md-list>

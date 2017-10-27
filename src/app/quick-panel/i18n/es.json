@@ -1,11 +1,12 @@
 {
     "QUICKPANEL": {
         "TODAY": "HOY",
+        "TITLE": "Zonas en Alerta",
         "CHAT": "CHAT",
         "ACTIVITY": "ACTIVIDAD",
         "FRIENDS": "Amigos",
         "APP_SERVERS": "Servidores deAplicacion",
-        "USER_STATS": "Estadisticas de Usuario",
+        "USER_STATS": "Estadisticas",
         "EVENTS": "Eventos",
         "NOTES": "Notas",
         "QUICK_SETTINGS": "Configuraciones rapidas",
