@@ -7,7 +7,7 @@
         .controller('QuickPanelController', QuickPanelController);
 
     /** @ngInject */
-    function QuickPanelController(api)
+    function QuickPanelController(api, $interval, $scope)
     {
         var vm = this;
 
@@ -18,6 +18,8 @@
             cloud : false,
             retro : true
         };
+
+      vm.stats = [];
 
       function refreshGoogleMaps() {
         api.getZonasEnProblemas().then(
@@ -51,7 +53,6 @@
 
         api.getReclamosActivos("ARGENTINA").then(
           function (response) {
-            vm.stats = [];
             var stat = {
               title:"Velocidad Promedio: ",
               numeroAMostrar:response.data.velocidad,
@@ -64,9 +65,7 @@
               porcentaje: (response.data.promedio * 100.0) / 5.0,
               color: "warn"
             };
-
-           vm.stats.push(stat);
-           vm.stats.push(stat2);
+            vm.stats = [stat,stat2];
 
 
           }, function (error) {
@@ -75,6 +74,14 @@
 
       }
       refreshGoogleMaps();
+      vm.reclamosTickerInterval = $interval(function () {
+        refreshGoogleMaps();
+      }, 15000);
+
+      // Cleanup
+      $scope.$on('$destroy', function () {
+        $interval.cancel(vm.reclamosTickerInterval);
+      });
     }
 
 })();
