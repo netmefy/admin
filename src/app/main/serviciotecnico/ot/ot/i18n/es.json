@@ -1,0 +1,12 @@
+{
+    "NEWOT": {
+        "GO_TO_OTS": "Ir a Órdenes de Trabajo",
+        "DETAIL": "Detalle:",
+        "SAVEOT": "Guardar",
+        "OT_DESCRIPTION": "Descripción de la OT",
+        "TECNICO": "Técnico",
+        "CLIENTE": "Cliente",
+        "TIPO_DE_ORDEN": "Tipo de Orden",
+        "ESTADO": "Estado"
+    }
+}

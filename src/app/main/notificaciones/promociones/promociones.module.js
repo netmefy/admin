@@ -19,10 +19,42 @@
                         controller : 'PromocionesController as vm'
                     }
                 }
-            });
+            })
+          .state('app.notificaciones_promociones.add', {
+            url      : '/add',
+            views    : {
+              'content@app': {
+                templateUrl: 'app/main/notificaciones/promociones/alerta/alerta.html',
+                controller : 'PromoController as vm'
+              }
+            },
+            resolve: {
+              Alerta: function (api)
+              {
+                return null;
+              }
+            }
+          })
+          .state('app.notificaciones_promociones.detail', {
+            url      : '/:id',
+            views    : {
+              'content@app': {
+                templateUrl: 'app/main/notificaciones/promociones/alerta/alerta.html',
+                controller : 'PromoController as vm'
+              }
+            },
+            resolve  : {
+              Alerta: function (api)
+              {
+                return null;
+              }
+            }
+          })
+        ;
 
-        // Translation
+      // Translation
         $translatePartialLoaderProvider.addPart('app/main/notificaciones/promociones');
+      $translatePartialLoaderProvider.addPart('app/main/notificaciones/promociones/alerta');
 
         // Api
         msApiProvider.register('sample', ['app/data/sample/sample.json']);

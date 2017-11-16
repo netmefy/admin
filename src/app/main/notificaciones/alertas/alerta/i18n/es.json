@@ -1,0 +1,13 @@
+{
+    "NEWOT": {
+        "GO_TO_OTS": "Ir a Alertas",
+        "NAME": "Nombre",
+        "DETAIL": "Detalle:",
+        "SAVEOT": "Guardar",
+        "ALERTA_DESCRIPTION": "Descripción de la Alerta",
+        "TIPO": "Tipo de Alerta",
+        "LOCALIDAD": "Localidad",
+        "TIPO_DE_ORDEN": "Tipo de Orden",
+        "ESTADO": "Estado"
+    }
+}

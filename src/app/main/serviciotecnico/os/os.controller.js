@@ -3,11 +3,11 @@
     'use strict';
 
     angular
-        .module('app.serviciotecnico.ot')
-        .controller('OTController', OTController);
+        .module('app.serviciotecnico.os')
+        .controller('OSController', OSController);
 
     /** @ngInject */
-    function OTController(api, $state)
+    function OSController(api)
     {
       var vm = this;
 
@@ -25,35 +25,7 @@
           },
           {
             // Target the quantity column
-            targets: 7,
-            render : function (data, type)
-            {
-              if ( type === 'display' )
-              {
-                if ( parseFloat(data) <= 2.5 )
-                {
-                  return '<div class="quantity-indicator md-red-500-bg"></div><div>' + data + '</div>';
-                }
-                else if ( parseFloat(data) > 2.5 && parseFloat(data) <= 3.5 )
-                {
-                  return '<div class="quantity-indicator md-amber-500-bg"></div><div>' + data + '</div>';
-                }
-                else if ( parseFloat(data) > 3.5 )
-                {
-                  return '<div class="quantity-indicator md-green-600-bg"></div><div>' + data + '</div>';
-                }
-                else
-                {
-                  return  data;
-                }
-              }
-
-              return data;
-            }
-          },
-          {
-            // Target the quantity column
-            targets: 8,
+            targets: 6,
             render : function (data, type)
             {
               if ( type === 'display' )
@@ -77,7 +49,7 @@
           },
           {
             // Target the actions column
-            targets           : 9,
+            targets           : 7,
             responsivePriority: 1,
             filterable        : false,
             sortable          : false
@@ -105,19 +77,19 @@
       };
 
       // Methods
-      vm.getOTs = getOTs;
-      vm.gotoAddOT = gotoAddOT;
-      vm.gotoOTDetail = gotoOTDetail;
+      vm.getOSs = getOSs;
+      vm.gotoAddOS = gotoAddOS;
+      vm.gotoOSDetail = gotoOSDetail;
 
       //////////
 
       function init() {
-        getOTs();
+        getOSs();
       }
 
-      function gotoAddOT()
+      function gotoAddOS()
       {
-        $state.go('app.serviciotecnico_ot.add');
+        //$state.go('app.serviciotecnico_ot.add');
       }
 
       /**
@@ -125,15 +97,15 @@
        *
        * @param id
        */
-      function gotoOTDetail(id)
+      function gotoOSDetail(id)
       {
-        $state.go('app.serviciotecnico_ot.detail', {id: id});
+        //$state.go('app.serviciotecnico_ot.detail', {id: id});
       }
 
-      function getOTs(){
-        api.getOTs().then(
+      function getOSs(){
+        api.getOSs().then(
           function (response) {
-            vm.ots = response.data;
+            vm.oss = response.data;
           }, function (error) {
             alert("ERROR");
           });

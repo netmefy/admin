@@ -1,0 +1,12 @@
+{
+  "OT": {
+    "GO_TO_OTS": "Go to Work Orders",
+    "OT_DETAIL": "Detail:",
+    "SAVE": "Save",
+    "OT_DESCRIPTION": "WO Description",
+    "TECNICO": "Worker",
+    "CLIENTE": "Client",
+    "TIPO_DE_ORDEN": "Order Type",
+    "ESTADO": "Status"
+  }
+}

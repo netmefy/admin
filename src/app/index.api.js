@@ -180,6 +180,11 @@
           getTipoUsuario:getTipoUsuario,
           getTecnicos:getTecnicos,
           getOTs:getOTs,
+          getOt:getOt,
+          getOSs:getOSs,
+          getOs:getOs,
+          getAlerta:getAlerta,
+          getNotificacion:getNotificacion,
           getAlertas:getAlertas,
           getPromociones:getPromociones,
           getReclamosActivos:getReclamosActivos,
@@ -255,6 +260,76 @@
         var deferred = $q.defer();
 
         $http.get(api.baseUrl + '/api/ISP_Ots')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getOSs() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Oss')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getOt(id) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Ot?id=' + id)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getOs(id) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Os?id=' + id)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getNotificacion(id) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Notificacion?id=' + id)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getAlerta(id) {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_Alerta?id=' + id)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })

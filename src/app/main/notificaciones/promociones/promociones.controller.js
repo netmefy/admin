@@ -7,7 +7,7 @@
         .controller('PromocionesController', PromocionesController);
 
     /** @ngInject */
-    function PromocionesController(api)
+    function PromocionesController(api, $state)
     {
       var vm = this;
 
@@ -65,7 +65,7 @@
 
       function gotoAddPromociones()
       {
-        //$state.go('app.serviciotecnico_ot.add');
+        $state.go('app.notificaciones_promociones.add');
       }
 
       /**
@@ -75,7 +75,7 @@
        */
       function gotoPromocionDetail(id)
       {
-        //$state.go('app.serviciotecnico_ot.detail', {id: id});
+        $state.go('app.notificaciones_promociones.detail', {id: id});
       }
 
       function getPromociones(){

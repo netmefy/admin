@@ -19,10 +19,42 @@
                         controller : 'AlertasController as vm'
                     }
                 }
-            });
+            })
+          .state('app.notificaciones_alertas.add', {
+            url      : '/add',
+            views    : {
+              'content@app': {
+                templateUrl: 'app/main/notificaciones/alertas/alerta/alerta.html',
+                controller : 'AlertaController as vm'
+              }
+            },
+            resolve: {
+              Alerta: function (api)
+              {
+                return null;
+              }
+            }
+          })
+          .state('app.notificaciones_alertas.detail', {
+            url      : '/:id',
+            views    : {
+              'content@app': {
+                templateUrl: 'app/main/notificaciones/alertas/alerta/alerta.html',
+                controller : 'AlertaController as vm'
+              }
+            },
+            resolve  : {
+              Alerta: function (api)
+              {
+                return null;
+              }
+            }
+          })
+        ;
 
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/notificaciones/alertas');
+        $translatePartialLoaderProvider.addPart('app/main/notificaciones/alertas/alerta');
 
         // Api
         msApiProvider.register('sample', ['app/data/sample/sample.json']);

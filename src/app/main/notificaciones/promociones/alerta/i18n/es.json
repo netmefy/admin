@@ -1,0 +1,13 @@
+{
+    "NEWOT": {
+        "GO_TO_OTS": "Ir a Promociones",
+        "NAME": "Nombre",
+        "DETAIL": "Detalle:",
+        "SAVEOT": "Guardar",
+        "PROMO_DESCRIPTION": "Descripción de la Promoción",
+        "TIPO": "Tipo de Promoción",
+        "LOCALIDAD": "Localidad",
+        "TIPO_DE_ORDEN": "Tipo de Orden",
+        "ESTADO": "Estado"
+    }
+}

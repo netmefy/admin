@@ -1,0 +1,18 @@
+{
+  "OT": {
+    "OT_NAV": "Work Orders",
+    "TOTAL_OTS": "Total de WOs:",
+    "SEARCH": "Search",
+    "ADD_NEW_OT": "Create New OT",
+    "NUMERO_CLIENTE": "Client Number",
+    "NOMBRE_CLIENTE": "Client Name",
+    "TIPO_DE_ORDEN": "WO Type",
+    "FECHA_CREACION": "Creation Date",
+    "FECHA_FINALIZACION": "Closed Date",
+    "TECNICO": "Asign Worker",
+    "CALIFICACION": "WO Score",
+    "ESTADO": "Status",
+    "ACCIONES": "Actions",
+    "OT_DETAILS": "WO Details"
+  }
+}

@@ -7,7 +7,7 @@
         .controller('AlertasController', AlertasController);
 
     /** @ngInject */
-    function AlertasController(api)
+    function AlertasController(api, $state)
     {
       var vm = this;
 
@@ -65,7 +65,7 @@
 
       function gotoAddAlerta()
       {
-        //$state.go('app.serviciotecnico_ot.add');
+        $state.go('app.notificaciones_alertas.add');
       }
 
       /**
@@ -75,7 +75,7 @@
        */
       function gotoAlertaDetail(id)
       {
-        //$state.go('app.serviciotecnico_ot.detail', {id: id});
+        $state.go('app.notificaciones_alertas.detail', {id: id});
       }
 
       function getAlertas(){

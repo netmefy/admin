@@ -1,0 +1,18 @@
+{
+    "OS": {
+        "OS_NAV": "Órdenes de Solicitud",
+        "TOTAL_OSS": "Total de OSs:",
+        "SEARCH": "Buscar",
+        "ADD_NEW_OS": "Crear Nueva OS",
+        "NUMERO_CLIENTE": "Número de Cliente",
+        "NOMBRE_CLIENTE": "Nombre de Cliente",
+        "TIPO_DE_ORDEN": "Tipo de Solicitud",
+        "FECHA_CREACION": "Fecha de Creación",
+        "FECHA_FINALIZACION": "Fecha de Finalización",
+        "TECNICO": "Técnico Asignado",
+        "CALIFICACION": "Calificación de OS",
+        "ESTADO": "Estado",
+        "ACCIONES": "Acciones",
+        "OS_DETAILS": "Detalles de OS"
+    }
+}
