@@ -85,42 +85,6 @@
       value: "0",
       footnote: "",
       detail: "Cantidad de solicitudes sin finalizar su gestión (en estado abierto o en curso).",
-      chart: {
-        config: {
-          refreshDataOnly: true,
-          deepWatchData: true
-        },
-        options: {
-          chart: {
-            type: 'lineChart',
-            color: ['rgba(0, 0, 0, 0.54)'],
-            height: 100,
-            margin: {
-              top: 8,
-              right: 0,
-              bottom: 0,
-              left: 0
-            },
-            duration: 1,
-            clipEdge: false,
-            interpolate: 'cardinal',
-            interactive: false,
-            isArea: true,
-            showLegend: false,
-            showControls: false,
-            showXAxis: false,
-            showYAxis: false,
-            x: function (d) {
-              return d.x;
-            },
-            y: function (d) {
-              return d.y;
-            },
-            yDomain: [0, 20]
-          }
-        },
-        data: vm.chart2
-      },
       init: function () {
 
       }
@@ -338,9 +302,9 @@
     vm.widget7.init();
 
     vm.widget8 = {
-      title: "Dispositivos Conectados",
+      title: "Dispositivos Vinculados",
       dispositivos: 0,
-      detail: "Dispositivos conectados aproximadamente en la zona.",
+      detail: "Dispositivos vinculados aproximadamente en la zona.",
       init: function () {
 
       }
@@ -645,56 +609,17 @@
       value: "0",
       footnote: "",
       detail: "Cantidad de reclamos sin solucionar (en estado abierto o en curso).",
-      chart: {
-        config: {
-          refreshDataOnly: true,
-          deepWatchData: true
-        },
-        options: {
-          chart: {
-            type: 'lineChart',
-            color: ['rgba(0, 0, 0, 0.54)'],
-            height: 100,
-            margin: {
-              top: 8,
-              right: 0,
-              bottom: 0,
-              left: 0
-            },
-            duration: 1,
-            clipEdge: false,
-            interpolate: 'cardinal',
-            interactive: false,
-            isArea: true,
-            showLegend: false,
-            showControls: false,
-            showXAxis: false,
-            showYAxis: false,
-            x: function (d) {
-              return d.x;
-            },
-            y: function (d) {
-              return d.y;
-            },
-            yDomain: [0, 30]
-          }
-        },
-        data: vm.chart1
-      },
       init: function () {
         // Run this function once to initialize the widget
         $interval.cancel(vm.reclamosTickerInterval);
-
-        // Grab the x value
-        var x = vm.chart1[0].values.length - 1;
-        vm.widget2.chart.data[0].values = [];
-        vm.widget1.chart.data[0].values = [];
 
         vm.widget1.value = null;
         vm.widget2.value = null;
         vm.widget3.velocidad = null;
         vm.widget4.promedio = null;
         vm.widget4.porcentaje = null;
+        vm.widget1.porcentaje = null;
+        vm.widget2.porcentaje = null;
         vm.widget6.cantidadClientes = null;
         vm.widget7.edadPromedio = null;
         vm.widget8.dispositivos = null;
@@ -706,27 +631,12 @@
           // Increase the x value
           api.getReclamosActivos(vm.selectedZone.nombre).then(
             function (response) {
-              x++;
-              var newValue = {
-                x: x,
-                y: response.data.reclamos
-              };
+
               vm.widget1.value = response.data.reclamos;
-              if (vm.widget1.chart.data[0].values.length == 25) {
-                vm.widget1.chart.data[0].values.shift();
-              }
-              vm.widget1.chart.data[0].values.push(newValue);
-
-              var newValue2 = {
-                x: x,
-                y: response.data.solicitudes
-              };
+              vm.widget1.cantidadClientes = response.data.cantidadClientes;
+              vm.widget1.porcentaje = (response.data.reclamos * 100.0) / response.data.cantidadClientes;
               vm.widget2.value = response.data.solicitudes;
-              if (vm.widget2.chart.data[0].values.length == 25) {
-                vm.widget2.chart.data[0].values.shift();
-              }
-              vm.widget2.chart.data[0].values.push(newValue2);
-
+              vm.widget2.porcentaje = (response.data.solicitudes * 100.0) / response.data.cantidadClientes;
               vm.widget3.velocidad = response.data.velocidad;
 
               vm.widget4.promedio = response.data.promedio;

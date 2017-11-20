@@ -20,7 +20,11 @@
             </md-menu-item>
           </md-menu-content>
         </md-menu>
+        <div class="selected-zone">
+          <span>Clientes: {{vm.widget1.cantidadClientes}} <md-icon class="m-0 mr-8" md-font-icon="icon-people"></md-icon></span>
+        </div>
       </div>
+
     </div>
     <!-- WIDGETS -->
     <div id="widgets">
@@ -47,13 +51,18 @@
                 </md-menu>
               </div>
 
-              <div class="pb-8 md-display-1">{{vm.widget1.value}} <md-icon class="m-0 mr-8" md-font-icon="icon-document"></md-icon></div>
-
-              <div class="chart-fill-16">
-                <nvd3 class="h-50 remove-opacity remove-line-stroke"
-                      config="vm.widget1.chart.config"
-                      options="vm.widget1.chart.options"
-                      data="vm.widget1.chart.data"></nvd3>
+              <div class="pb-8" layout="row" layout-align="start center">
+                <div class="md-display-1">{{vm.widget1.value}}
+                  <md-icon class="m-0 mr-8" md-font-icon="icon-document"></md-icon>
+                </div>
+              </div>
+              <div class="pb-8">
+                <md-progress-linear md-mode="determinate"
+                                    value="{{vm.widget1.porcentaje}}"></md-progress-linear>
+              </div>
+              <div layout="row" layout-align="start center">
+                <span class="text-boxed-light">{{vm.widget1.porcentaje | number:2}}%</span>
+                <span class="secondary-text">({{vm.widget1.value + " Reclamos/" + vm.widget1.cantidadClientes + " Clientes" }})</span>
               </div>
             </ms-widget-front>
             <!-- / Front -->
@@ -94,13 +103,18 @@
                 </md-menu>
               </div>
 
-              <div class="pb-8 md-display-1">{{vm.widget2.value}} <md-icon class="m-0 mr-8" md-font-icon="icon-document"></div>
-
-              <div class="chart-fill-16">
-                <nvd3 class="h-50 remove-opacity remove-line-stroke"
-                      config="vm.widget2.chart.config"
-                      options="vm.widget2.chart.options"
-                      data="vm.widget2.chart.data"></nvd3>
+              <div class="pb-8" layout="row" layout-align="start center">
+                <div class="md-display-1">{{vm.widget2.value}}
+                  <md-icon class="m-0 mr-8" md-font-icon="icon-document"></md-icon>
+                </div>
+              </div>
+              <div class="pb-8">
+              <md-progress-linear md-mode="determinate"
+                                  value="{{vm.widget2.porcentaje}}"></md-progress-linear>
+              </div>
+              <div layout="row" layout-align="start center">
+                <span class="text-boxed-light">{{vm.widget2.porcentaje | number:2}}%</span>
+                <span class="secondary-text">({{vm.widget2.value + " Solicitudes/" + vm.widget1.cantidadClientes + " Clientes" }})</span>
               </div>
             </ms-widget-front>
             <!-- / Front -->
@@ -180,14 +194,14 @@
               </div>
 
 
-                <ui-gmap-google-map center="vm.widget10.map.center" zoom="vm.widget10.map.zoom"
-                                    options="vm.widget10.map.options">
-                  <ui-gmap-markers models="vm.widget10.map.markers" coords="'coords'">
-                    <ui-gmap-windows show="show">
-                      <div ng-non-bindable>{{sessions}}</div>
-                    </ui-gmap-windows>
-                  </ui-gmap-markers>
-                </ui-gmap-google-map>
+              <ui-gmap-google-map center="vm.widget10.map.center" zoom="vm.widget10.map.zoom"
+                                  options="vm.widget10.map.options">
+                <ui-gmap-markers models="vm.widget10.map.markers" coords="'coords'">
+                  <ui-gmap-windows show="show">
+                    <div ng-non-bindable>{{sessions}}</div>
+                  </ui-gmap-windows>
+                </ui-gmap-markers>
+              </ui-gmap-google-map>
 
 
             </ms-widget-front>
@@ -267,7 +281,9 @@
               </div>
 
               <div class="pb-24" layout="row" layout-align="start center">
-                <div class="md-display-1">{{vm.widget7.edadPromedio}} <md-icon class="m-0 mr-8" md-font-icon="icon-cake"></md-icon></div>
+                <div class="md-display-1">{{vm.widget7.edadPromedio}}
+                  <md-icon class="m-0 mr-8" md-font-icon="icon-cake"></md-icon>
+                </div>
               </div>
 
               <md-progress-linear md-mode="determinate"
@@ -313,7 +329,9 @@
               </div>
 
               <div class="pb-24" layout="row" layout-align="start center">
-                <div class="md-display-1">{{vm.widget8.dispositivos}} <md-icon class="m-0 mr-8" md-font-icon="icon-cellphone-link"></md-icon></div>
+                <div class="md-display-1">{{vm.widget8.dispositivos}}
+                  <md-icon class="m-0 mr-8" md-font-icon="icon-cellphone-link"></md-icon>
+                </div>
               </div>
             </ms-widget-front>
             <!-- / Front -->
@@ -337,11 +355,8 @@
         </div>
 
 
-
       </div>
       <!-- / WIDGET GROUP -->
-
-
 
 
       <!-- WIDGET GROUP -->
@@ -456,7 +471,7 @@
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >ID</span>
+                    <span class="column-title">ID</span>
                   </div>
                 </th>
                 <th class="secondary-text">
@@ -471,12 +486,12 @@
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >OT Asignadas</span>
+                    <span class="column-title">OT Asignadas</span>
                   </div>
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >OT Cerradas</span>
+                    <span class="column-title">OT Cerradas</span>
                   </div>
                 </th>
               </tr>
@@ -526,12 +541,12 @@
               <tr>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Total</span>
+                    <span class="column-title">Total</span>
                   </div>
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Página</span>
+                    <span class="column-title">Página</span>
                   </div>
                 </th>
                 <th class="secondary-text">
@@ -546,7 +561,7 @@
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Edad Promedio</span>
+                    <span class="column-title">Edad Promedio</span>
                   </div>
                 </th>
               </tr>
@@ -606,7 +621,7 @@
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >ID</span>
+                    <span class="column-title">ID</span>
                   </div>
                 </th>
                 <th class="secondary-text">
@@ -621,22 +636,22 @@
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Casa/Dpto</span>
+                    <span class="column-title">Casa/Dpto</span>
                   </div>
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Localidad</span>
+                    <span class="column-title">Localidad</span>
                   </div>
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Provincia</span>
+                    <span class="column-title">Provincia</span>
                   </div>
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title" >Zona</span>
+                    <span class="column-title">Zona</span>
                   </div>
                 </th>
               </tr>
