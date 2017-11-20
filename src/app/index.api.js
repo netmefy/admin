@@ -186,6 +186,8 @@
           getAlerta:getAlerta,
           getNotificacion:getNotificacion,
           getAlertas:getAlertas,
+          getLocalidades:getLocalidades,
+          notificacionesZona:notificacionesZona,
           getPromociones:getPromociones,
           getReclamosActivos:getReclamosActivos,
           getVelocidadPromedio:getVelocidadPromedio,
@@ -232,6 +234,20 @@
         var deferred = $q.defer();
 
         $http.get(api.baseUrl + '/api/tipoUsuarioApp?username=' + client)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function notificacionesZona(notificacion) {
+        var deferred = $q.defer();
+
+        $http.post(api.baseUrl + '/api/notificaciones_zona' , notificacion)
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })
@@ -527,6 +543,20 @@
         var deferred = $q.defer();
 
         $http.get(api.baseUrl + '/api/ISP_AlertasProm?id=Alerta')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getLocalidades() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/localidad')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })

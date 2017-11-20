@@ -23,7 +23,7 @@
     <div>
       <md-button class="md-raised md-background" ng-click="vm.saveOt()"
                  ng-disabled="!vm.isFormValid('otForm')">
-        <span translate="NEWOT.SAVEOT">SAVE</span>
+        <span translate="NEWOT.SAVEALERTA">SAVE</span>
       </md-button>
     </div>
   </div>
@@ -44,13 +44,7 @@
         <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.to.description"
                       class="pb-0"></text-angular>
 
-        <md-input-container class="md-block">
-          <label translate="NEWOT.TIPO">Tipo de Promoción</label>
 
-          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque un Tipo de Alerta">
-            <span md-highlight-text="searchText">{{tecnico.id + " - " + tecnico.nombre}}</span>
-          </md-autocomplete>
-        </md-input-container>
         <md-input-container class="md-block">
           <label translate="NEWOT.LOCALIDAD">Localidad</label>
           <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque una Localidad">

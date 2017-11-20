@@ -329,9 +329,12 @@
               </div>
 
               <div class="pb-24" layout="row" layout-align="start center">
-                <div class="md-display-1">{{vm.widget8.dispositivos}}
+                <div class="md-display-1">{{vm.widget8.dispositivos/vm.widget1.cantidadClientes | number: 2}}
                   <md-icon class="m-0 mr-8" md-font-icon="icon-cellphone-link"></md-icon>
                 </div>
+              </div>
+              <div layout="row" layout-align="start center">
+                <span class="secondary-text">({{vm.widget8.dispositivos + " Dispositivos/" + vm.widget1.cantidadClientes + " Clientes" }})</span>
               </div>
             </ms-widget-front>
             <!-- / Front -->

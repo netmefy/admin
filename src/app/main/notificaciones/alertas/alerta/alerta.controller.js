@@ -31,10 +31,10 @@
 
       //////////
 
-      function getTecnicos(){
-        api.getTecnicos().then(
+      function getLocalidades(){
+        api.getLocalidades().then(
           function (response) {
-            vm.tecnicos = response.data;
+            vm.localidades = response.data;
           }, function (error) {
             alert("ERROR");
           });
@@ -46,7 +46,7 @@
        */
       function init()
       {
-        getTecnicos();
+        getLocalidades();
       }
 
       /**
@@ -58,15 +58,18 @@
         // this function to update the ots array in the demo.
         // But in real world, you would need this function to trigger
         // an API call to update your database.
-        if ( vm.ot.id )
-        {
-
-        }
-        else
-        {
-
-        }
-
+        vm.alertaToSend = {
+          notificacion_desc: vm.alerta.name,
+          notificacion_texto: vm.alerta.description.replace(/<p>/g , "").replace(/<\/p>/g,""),
+          localidad_sk: vm.selectedLocalidad.id,
+          notificacion_tipo: "Alerta"
+        };
+        api.notificacionesZona(vm.alertaToSend).then(
+          function (response) {
+            $state.go('app.notificaciones_alertas');
+          }, function (error) {
+            alert("ERROR");
+          });
       }
 
       /**

@@ -302,7 +302,7 @@
     vm.widget7.init();
 
     vm.widget8 = {
-      title: "Dispositivos Vinculados",
+      title: "Dispositivos Promedio Por Cliente",
       dispositivos: 0,
       detail: "Dispositivos vinculados aproximadamente en la zona.",
       init: function () {

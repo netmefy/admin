@@ -22,13 +22,6 @@
             // Target the id column
             targets: 0,
             width  : '72px'
-          },
-          {
-            // Target the actions column
-            targets           : 5,
-            responsivePriority: 1,
-            filterable        : false,
-            sortable          : false
           }
         ],
         initComplete: function ()

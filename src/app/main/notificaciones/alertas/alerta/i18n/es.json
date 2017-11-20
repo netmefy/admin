@@ -3,7 +3,7 @@
         "GO_TO_OTS": "Ir a Alertas",
         "NAME": "Nombre",
         "DETAIL": "Detalle:",
-        "SAVEOT": "Guardar",
+        "SAVEALERTA": "Enviar",
         "ALERTA_DESCRIPTION": "Descripción de la Alerta",
         "TIPO": "Tipo de Alerta",
         "LOCALIDAD": "Localidad",
