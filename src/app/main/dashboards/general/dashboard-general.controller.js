@@ -19,7 +19,7 @@
         id: 1, nombre: "AMBA", descripcion: "Bs. As. + Capital Federal"
       },
       {
-        id: 2, nombre: "MEDITERRANIA", descripcion: "Cordoba, San Luis, Mendoza, San Juan y La Rioja"
+        id: 2, nombre: "MEDITERRANEA", descripcion: "Cordoba, San Luis, Mendoza, San Juan y La Rioja"
       },
       {
         id: 3, nombre: "LITORAL", descripcion: "Santa Fe, Entre Rios, Corrientes y Misiones"
@@ -53,6 +53,7 @@
     };
 
     function selectZone(zone) {
+      $interval.cancel(vm.reclamosTickerInterval);
       vm.selectedZone = zone;
       vm.widget1.init();
       vm.widget2.init();
@@ -183,8 +184,7 @@
               showMaxMin: false
             },
             x2Axis: {
-              showMaxMin: false,
-              tickFormat: function (d) {
+              showMaxMin: false,tickFormat: function (d) {
                 var diaAtomar = new Date();
                 diaAtomar.setYear(vm.chart5StartDate.substr(0, 4));
                 diaAtomar.setMonth(vm.chart5StartDate.substr(5, 2)-1);
@@ -503,15 +503,31 @@
           {
             width  : '5%',
             targets: [0, 1]
+          },
+          {
+            // Target the quantity column
+            targets: 1,
+            render : function (data, type)
+            {
+              if ( type === 'display' )
+              {
+                if ( parseFloat(data) <= 2.5 )
+                {
+                  return '<div class="quantity-indicator md-red-500-bg"></div><div>' + data + '</div>';
+                }
+                else if ( parseFloat(data) > 2.5 && parseFloat(data) <= 3.5 )
+                {
+                  return '<div class="quantity-indicator md-amber-500-bg"></div><div>' + data + '</div>';
+                }
+                else
+                {
+                  return '<div class="quantity-indicator md-green-600-bg"></div><div>' + data + '</div>';
+                }
+              }
+
+              return data;
+            }
           }
-        ],
-        columns   : [
-          {},
-          {},
-          {},
-          {},
-          {},
-          {}
         ]
       }
     };

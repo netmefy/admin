@@ -281,7 +281,7 @@
               </div>
 
               <div class="pb-24" layout="row" layout-align="start center">
-                <div class="md-display-1">{{vm.widget7.edadPromedio}}
+                <div class="md-display-1">{{vm.widget7.edadPromedio | number: 0}}
                   <md-icon class="m-0 mr-8" md-font-icon="icon-cake"></md-icon>
                 </div>
               </div>
@@ -329,7 +329,7 @@
               </div>
 
               <div class="pb-24" layout="row" layout-align="start center">
-                <div class="md-display-1">{{vm.widget8.dispositivos/vm.widget1.cantidadClientes | number: 2}}
+                <div class="md-display-1">{{vm.widget8.dispositivos/vm.widget1.cantidadClientes | number: 1}}
                   <md-icon class="m-0 mr-8" md-font-icon="icon-cellphone-link"></md-icon>
                 </div>
               </div>
