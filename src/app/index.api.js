@@ -179,6 +179,8 @@
           loginAndGetToken:loginAndGetToken,
           getTipoUsuario:getTipoUsuario,
           getTecnicos:getTecnicos,
+          getClientes:getClientes,
+          getTiposOT:getTiposOT,
           getOTs:getOTs,
           getOt:getOt,
           getOSs:getOSs,
@@ -188,6 +190,10 @@
           getAlertas:getAlertas,
           getLocalidades:getLocalidades,
           notificacionesZona:notificacionesZona,
+          guardarOT:guardarOT,
+          guardarOTEditada:guardarOTEditada,
+          guardarEstadoOT:guardarEstadoOT,
+          guardarEstadoOS:guardarEstadoOS,
           getPromociones:getPromociones,
           getReclamosActivos:getReclamosActivos,
           getVelocidadPromedio:getVelocidadPromedio,
@@ -258,10 +264,94 @@
         return deferred.promise;
       }
 
+      function guardarOT(ot) {
+        var deferred = $q.defer();
+
+        $http.post(api.baseUrl + '/api/ot' , ot)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function guardarOTEditada(ot) {
+        var deferred = $q.defer();
+
+        $http.post(api.baseUrl + '/api/ot_edit_Tecnico' , ot)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function guardarEstadoOT(ot) {
+        var deferred = $q.defer();
+
+        $http.post(api.baseUrl + '/api/ot_status' , ot)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function guardarEstadoOS(os) {
+        var deferred = $q.defer();
+
+        $http.post(api.baseUrl + '/api/os_status' , os)
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
       function getTecnicos() {
         var deferred = $q.defer();
 
         $http.get(api.baseUrl + '/api/ISP_Tecnicos')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getClientes() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/ISP_clientes')
+          .then(function (data, status, headers) {
+            deferred.resolve(data);
+          })
+          .catch(function (data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      }
+
+      function getTiposOT() {
+        var deferred = $q.defer();
+
+        $http.get(api.baseUrl + '/api/tipo_ot')
           .then(function (data, status, headers) {
             deferred.resolve(data);
           })

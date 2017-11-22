@@ -112,7 +112,7 @@
             <td>{{ot.calificacionOT}}</td>
             <td>{{ot.estado}}</td>
             <td>
-              <md-button class="edit-button md-icon-button" ng-click="vm.gotoOTDetail(ot.id)" aria-label="Detalles de OT"
+              <md-button class="edit-button md-icon-button" ng-click="vm.gotoOTDetail(ot.id, ot.tecnico_sk, ot.estado)" aria-label="Detalles de OT"
                          translate translate-attr-aria-label="OT.OT_DETAILS">
                 <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
               </md-button>

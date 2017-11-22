@@ -1,0 +1,62 @@
+<div id="e-commerce-product" class="page-layout simple tabbed" layout="column">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="start center">
+    <div class="white-fg" layout="row" layout-align="start center" flex>
+      <md-button class="goto-products-button md-icon-button" aria-label="Go to ots"
+                 ng-click="vm.gotoOts()"
+                 translate translate-attr-aria-label="NEWOS.GO_TO_OTS">
+        <md-icon md-font-icon="icon-arrow-left"></md-icon>
+      </md-button>
+
+      <div layout="row" layout-align="start center">
+
+        <div layout="column" layout-align="start start">
+
+          <div class="h2">
+            <md-icon md-font-icon="icon-document"></md-icon> Órden de Solicitud
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <md-button class="md-raised md-background" ng-click="vm.saveOt()"
+                 ng-disabled="!vm.isFormValid('otForm')">
+        <span translate="NEWOS.SAVEOT">SAVE</span>
+      </md-button>
+    </div>
+  </div>
+  <!-- / HEADER -->
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
+      <form id="otForm" name="otForm">
+        <md-input-container flex>
+          <label translate="NEWOS.OT_ESTADO">Tipo de OT</label>
+          <md-select ng-model="vm.type" >
+            <md-option ng-repeat="type in vm.types" value="{{type.id}}">
+              {{type.id + ' - ' + type.descripcion}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <div ng-show="vm.type != vm.estadoactual+1">
+        <h3 class="secondary-text" translate="NEWOS.OT_DESCRIPTION_CAMBIO">OT Description</h3>
+        <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.to.description"
+                      class="pb-0" ></text-angular>
+        </div>
+
+
+
+
+      </form>
+    </div>
+
+
+
+  </div>
+  <!-- / CONTENT -->
+
+</div>

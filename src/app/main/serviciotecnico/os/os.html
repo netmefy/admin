@@ -25,6 +25,12 @@
         <input id="e-commerce-products-search" class="search-input" type="text" placeholder="Search"
                translate translate-attr-placeholder="OS.SEARCH" flex>
       </div>
+
+      <div>
+        <md-button class="md-raised md-background" ng-show="false" ng-click="vm.gotoAddOS()">
+          <span translate="OS.ADD_NEW_OS">Crear Nueva OS</span>
+        </md-button>
+      </div>
     </div>
     <!-- / CONTENT HEADER -->
 
@@ -94,7 +100,7 @@
             <td>{{ot.fechaFinalizacion}}</td>
             <td>{{ot.estado}}</td>
             <td>
-              <md-button class="edit-button md-icon-button" ng-click="vm.gotoOSDetail(ot.id)" aria-label="Detalles de OS"
+              <md-button class="edit-button md-icon-button" ng-click="vm.gotoOSDetail(ot.id, ot.estado)" aria-label="Detalles de OS"
                          translate translate-attr-aria-label="OS.OS_DETAILS">
                 <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
               </md-button>

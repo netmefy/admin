@@ -1,12 +1,12 @@
 {
-  "OT": {
+  "NEWOS": {
     "GO_TO_OTS": "Go to Work Orders",
-    "OT_TIPO": "WO Type",
-    "OT_ESTADO": "WO Status",
+    "OT_TIPO": "SO Type",
+    "OT_ESTADO": "SO Status",
     "OT_DETAIL": "Detail:",
     "SAVE": "Save",
-    "OT_DESCRIPTION": "WO Description",
-    "OT_DESCRIPTION_CAMBIO": "WO Status Change Description",
+    "OT_DESCRIPTION": "SO Description",
+    "OT_DESCRIPTION_CAMBIO": "SO Status Change Description",
     "TECNICO": "Worker",
     "CLIENTE": "Client",
     "TIPO_DE_ORDEN": "Order Type",

@@ -1,11 +1,11 @@
 {
-    "NEWOT": {
-        "GO_TO_OTS": "Ir a Órdenes de Trabajo",
-        "OT_TIPO": "Tipo de OT",
+    "NEWOS": {
+        "GO_TO_OTS": "Ir a Órdenes de Solicitud",
+        "OT_TIPO": "Tipo de OS",
         "OT_ESTADO": "Estado",
         "DETAIL": "Detalle:",
         "SAVEOT": "Guardar",
-        "OT_DESCRIPTION": "Descripción de la OT",
+        "OT_DESCRIPTION": "Descripción de la OS",
         "OT_DESCRIPTION_CAMBIO": "Descripción por cambio de Estado ",
         "TECNICO": "Técnico",
         "CLIENTE": "Cliente",

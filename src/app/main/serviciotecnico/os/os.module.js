@@ -19,11 +19,27 @@
                         controller : 'OSController as vm'
                     }
                 }
-            });
+            })
+          .state('app.serviciotecnico_os.detail', {
+            url      : '/:id/:estado',
+            views    : {
+              'content@app': {
+                templateUrl: 'app/main/serviciotecnico/os/os/os-edit.html',
+                controller : 'EditOSController as vm'
+              }
+            },
+            resolve  : {
+              Ot: function ($stateParams)
+              {
+                var ot = {id:$stateParams.id, estado: $stateParams.estado};
+                return ot;
+              }
+            }
+          });
 
         // Translation
         $translatePartialLoaderProvider.addPart('app/main/serviciotecnico/os');
-
+      $translatePartialLoaderProvider.addPart('app/main/serviciotecnico/os/os');
 
         msNavigationServiceProvider.saveItem('serviciotecnico.os', {
             title    : 'Ordenes de Solicitud',

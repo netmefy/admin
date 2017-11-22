@@ -37,18 +37,17 @@
 
         <md-input-container class="md-block">
           <label translate="NEWOT.NAME">Alert Name</label>
-          <input type="text" ng-model="vm.product.name" required>
+          <input type="text" ng-model="vm.alerta.name" required>
         </md-input-container>
 
-        <h3 class="secondary-text" translate="NEWOT.PROMO_DESCRIPTION">Alert Description</h3>
-        <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.to.description"
-                      class="pb-0"></text-angular>
-
+        <h3 class="secondary-text" translate="NEWOT.ALERTA_DESCRIPTION">Alert Description</h3>
+        <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.alerta.description"
+                      class="pb-0" required></text-angular>
 
         <md-input-container class="md-block">
           <label translate="NEWOT.LOCALIDAD">Localidad</label>
-          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque una Localidad">
-            <span md-highlight-text="searchText">{{tecnico.id + " - " + tecnico.nombre}}</span>
+          <md-autocomplete  md-selected-item="vm.selectedLocalidad" md-search-text="searchText" md-items="localidad in vm.localidades | filter:searchText" md-item-text="localidad.id + ' - ' + localidad.localidad + ' - ' + localidad.provincia" placeholder="Busque una Localidad" required>
+            <span md-highlight-text="searchText">{{localidad.id + " - " + localidad.localidad + " - " + localidad.provincia}}</span>
           </md-autocomplete>
         </md-input-container>
 

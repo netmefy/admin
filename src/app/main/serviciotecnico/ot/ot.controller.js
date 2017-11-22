@@ -125,9 +125,9 @@
        *
        * @param id
        */
-      function gotoOTDetail(id)
+      function gotoOTDetail(id, tecnico_sk, estado)
       {
-        $state.go('app.serviciotecnico_ot.detail', {id: id});
+        $state.go('app.serviciotecnico_ot.detail', {id: id, tecnico_sk: tecnico_sk, estado: estado});
       }
 
       function getOTs(){

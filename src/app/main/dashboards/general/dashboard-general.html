@@ -489,24 +489,24 @@
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title">OT Asignadas</span>
+                    <span class="column-title">OT Cerradas</span>
                   </div>
                 </th>
                 <th class="secondary-text">
                   <div class="table-header">
-                    <span class="column-title">OT Cerradas</span>
+                    <span class="column-title">OT Asignadas</span>
                   </div>
                 </th>
               </tr>
               </thead>
               <tbody>
               <tr ng-repeat="tecnico in ::vm.tecnicos">
-                <td>{{tecnico.calificacion}}</td>
+                <td>{{tecnico.calificacion | number: 2}}</td>
                 <td>{{tecnico.id}}</td>
                 <td>{{tecnico.nombre}}</td>
                 <td>{{tecnico.email}}</td>
-                <td>{{tecnico.ot_asignadas_tot}}</td>
                 <td>{{tecnico.ot_fin}}</td>
+                <td>{{tecnico.ot_asignadas_tot}}</td>
               </tr>
               </tbody>
             </table>

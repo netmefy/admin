@@ -34,22 +34,29 @@
 
     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
       <form id="otForm" name="otForm">
-
-        <h3 class="secondary-text" translate="NEWOT.OT_DESCRIPTION">Alert Description</h3>
+        <md-input-container flex>
+          <label translate="NEWOT.OT_TIPO">Tipo de OT</label>
+          <md-select ng-model="vm.type" required>
+            <md-option ng-repeat="type in vm.types" value="{{type.tipo_ot_sk}}">
+              {{type.tipo_ot_sk + ' - ' + type.tipo_ot_desc}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <h3 class="secondary-text" translate="NEWOT.OT_DESCRIPTION">OT Description</h3>
         <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.to.description"
-                      class="pb-0"></text-angular>
+                      class="pb-0" required></text-angular>
 
         <md-input-container class="md-block">
           <label translate="NEWOT.TECNICO">Técnico</label>
 
-          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque un Técnico">
+          <md-autocomplete md-selected-item="vm.selectedTecnico" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque un Técnico" required>
             <span md-highlight-text="searchText">{{tecnico.id + " - " + tecnico.nombre}}</span>
           </md-autocomplete>
         </md-input-container>
         <md-input-container class="md-block">
           <label translate="NEWOT.CLIENTE">Cliente</label>
-          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque un Cliente">
-            <span md-highlight-text="searchText">{{tecnico.id + " - " + tecnico.nombre}}</span>
+          <md-autocomplete md-selected-item="vm.selectedCliente" md-search-text="searchTextC" md-items="cliente in vm.clientes | filter:searchTextC" md-item-text="cliente.id + ' - ' + cliente.username" placeholder="Busque un Cliente" required>
+            <span md-highlight-text="searchText">{{cliente.id + " - " + cliente.username}}</span>
           </md-autocomplete>
         </md-input-container>
 

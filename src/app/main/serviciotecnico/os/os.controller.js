@@ -7,7 +7,7 @@
         .controller('OSController', OSController);
 
     /** @ngInject */
-    function OSController(api)
+    function OSController(api, $state)
     {
       var vm = this;
 
@@ -97,9 +97,9 @@
        *
        * @param id
        */
-      function gotoOSDetail(id)
+      function gotoOSDetail(id, estado)
       {
-        //$state.go('app.serviciotecnico_ot.detail', {id: id});
+        $state.go('app.serviciotecnico_os.detail', {id: id, estado: estado});
       }
 
       function getOSs(){

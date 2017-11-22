@@ -36,17 +36,18 @@
             }
           })
           .state('app.serviciotecnico_ot.detail', {
-            url      : '/:id',
+            url      : '/:id/:tecnico_sk/:estado',
             views    : {
               'content@app': {
-                templateUrl: 'app/main/serviciotecnico/ot/ot/ot.html',
-                controller : 'NewOTController as vm'
+                templateUrl: 'app/main/serviciotecnico/ot/ot/ot-edit.html',
+                controller : 'EditOTController as vm'
               }
             },
             resolve  : {
-              Ot: function ($stateParams, api)
+              Ot: function ($stateParams)
               {
-                return api.getOt($stateParams.id);
+                var ot = {id:$stateParams.id, tecnico_sk: $stateParams.tecnico_sk, estado: $stateParams.estado};
+                return ot;
               }
             }
           });

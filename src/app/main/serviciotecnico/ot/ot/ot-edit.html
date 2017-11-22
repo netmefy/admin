@@ -14,7 +14,7 @@
         <div layout="column" layout-align="start start">
 
           <div class="h2">
-            <md-icon md-font-icon="icon-bell-ring-outline"></md-icon> Alerta
+            <md-icon md-font-icon="icon-document"></md-icon> Órden de Trabajo
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
     <div>
       <md-button class="md-raised md-background" ng-click="vm.saveOt()"
                  ng-disabled="!vm.isFormValid('otForm')">
-        <span translate="NEWOT.SAVEALERTA">SEND</span>
+        <span translate="NEWOT.SAVEOT">SAVE</span>
       </md-button>
     </div>
   </div>
@@ -34,22 +34,28 @@
 
     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
       <form id="otForm" name="otForm">
-
-        <md-input-container class="md-block">
-          <label translate="NEWOT.NAME">Alert Name</label>
-          <input type="text" ng-model="vm.alerta.name" required>
+        <md-input-container flex>
+          <label translate="NEWOT.OT_ESTADO">Tipo de OT</label>
+          <md-select ng-model="vm.type" >
+            <md-option ng-repeat="type in vm.types" value="{{type.id}}">
+              {{type.id + ' - ' + type.descripcion}}
+            </md-option>
+          </md-select>
         </md-input-container>
-
-        <h3 class="secondary-text" translate="NEWOT.ALERTA_DESCRIPTION">Alert Description</h3>
-        <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.alerta.description"
-                      class="pb-0" required></text-angular>
+        <div ng-show="vm.type != vm.estadoactual+1">
+        <h3 class="secondary-text" translate="NEWOT.OT_DESCRIPTION_CAMBIO">OT Description</h3>
+        <text-angular ta-toolbar="vm.taToolbar" ng-model="vm.to.description"
+                      class="pb-0" ></text-angular>
+        </div>
 
         <md-input-container class="md-block">
-          <label translate="NEWOT.LOCALIDAD">Localidad</label>
-          <md-autocomplete  md-selected-item="vm.selectedLocalidad" md-search-text="searchText" md-items="localidad in vm.localidades | filter:searchText" md-item-text="localidad.id + ' - ' + localidad.localidad + ' - ' + localidad.provincia" placeholder="Busque una Localidad" required>
-            <span md-highlight-text="searchText">{{localidad.id + " - " + localidad.localidad + " - " + localidad.provincia}}</span>
+          <label translate="NEWOT.TECNICO">Técnico</label>
+
+          <md-autocomplete md-selected-item="vm.selectedTecnico" md-search-text="searchText" md-items="tecnico in vm.tecnicos | filter:searchText" md-item-text="tecnico.id + ' - ' + tecnico.nombre" placeholder="Busque un Técnico" >
+            <span md-highlight-text="searchText">{{tecnico.id + " - " + tecnico.nombre}}</span>
           </md-autocomplete>
         </md-input-container>
+
 
       </form>
     </div>

@@ -3,11 +3,11 @@
     'use strict';
 
     angular
-        .module('app.notificaciones.alertas')
-        .controller('PromoController', PromoController);
+        .module('app.serviciotecnico.ot')
+        .controller('EditOSController', EditOSController);
 
     /** @ngInject */
-    function PromoController(api,$scope, $document, $state, Alerta)
+    function EditOSController(api,$scope, $document, $state, Ot , $filter)
     {
       var vm = this;
       vm.tecnicos=[];
@@ -17,7 +17,11 @@
       ];
 
 
-      vm.alerta = Alerta;
+      vm.ot = Ot;
+      vm.estadoactual = 0;
+      vm.types = [{id:1, descripcion:"Abierto"},
+        {id:2, descripcion:"En Curso"},
+        {id:3, descripcion:"Cerrado"}];
       vm.categoriesSelectFilter = '';
 
       vm.dropping = false;
@@ -31,14 +35,10 @@
 
       //////////
 
-      function getLocalidades(){
-        api.getLocalidades().then(
-          function (response) {
-            vm.localidades = response.data;
-          }, function (error) {
-            alert("ERROR");
-          });
-      }
+
+
+
+
 
 
       /**
@@ -46,31 +46,36 @@
        */
       function init()
       {
-        getLocalidades();
-      }
 
+        for (var i = 0 ; i< vm.types.length ; i++){
+          if (vm.ot.estado == vm.types[i].descripcion){
+            vm.estadoactual=i;
+          }
+        }
+        vm.type = vm.types[vm.estadoactual].id;
+      }
 
       /**
        * Save ot
        */
       function saveOt()
       {
-        // Since we have two-way binding in place, we don't really need
-        // this function to update the ots array in the demo.
-        // But in real world, you would need this function to trigger
-        // an API call to update your database.
-        vm.alertaToSend = {
-          notificacion_desc: vm.alerta.name,
-          notificacion_texto: vm.alerta.description.replace(/<p>/g , "").replace(/<\/p>/g,""),
-          localidad_sk: vm.selectedLocalidad.id,
-          notificacion_tipo: "Promocion"
-        };
-        api.notificacionesZona(vm.alertaToSend).then(
-          function (response) {
-            $state.go('app.notificaciones_promociones');
-          }, function (error) {
-            alert("ERROR");
-          });
+        if(vm.type != vm.estadoactual+1){
+          vm.statusToSend = {
+            os_id: vm.ot.id,
+            estado_sk: vm.type,
+            comentarios: vm.to.description.replace(/<p>/g , "").replace(/<\/p>/g,"")
+          };
+
+          api.guardarEstadoOS(vm.statusToSend).then(
+            function (response) {
+              $state.go('app.serviciotecnico_os');
+            }, function (error) {
+              alert("ERROR");
+            });
+        }else{
+          $state.go('app.serviciotecnico_os');
+        }
       }
 
       /**
@@ -78,7 +83,7 @@
        */
       function gotoOts()
       {
-        $state.go('app.notificaciones_promociones');
+        $state.go('app.serviciotecnico_os');
       }
 
       /**

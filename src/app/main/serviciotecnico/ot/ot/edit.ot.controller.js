@@ -4,10 +4,10 @@
 
     angular
         .module('app.serviciotecnico.ot')
-        .controller('NewOTController', NewOTController);
+        .controller('EditOTController', EditOTController);
 
     /** @ngInject */
-    function NewOTController(api,$scope, $document, $state, Ot)
+    function EditOTController(api,$scope, $document, $state, Ot , $filter)
     {
       var vm = this;
       vm.tecnicos=[];
@@ -18,6 +18,10 @@
 
 
       vm.ot = Ot;
+      vm.estadoactual = 0;
+      vm.types = [{id:1, descripcion:"Abierto"},
+        {id:2, descripcion:"En Curso"},
+        {id:3, descripcion:"Cerrado"}];
       vm.categoriesSelectFilter = '';
 
       vm.dropping = false;
@@ -35,28 +39,22 @@
         api.getTecnicos().then(
           function (response) {
             vm.tecnicos = response.data;
+            var foundItem = {};
+
+            for (var i = 0; i < vm.tecnicos.length ; i++) {
+              if (vm.tecnicos[i].sk == vm.ot.tecnico_sk) {
+                foundItem = vm.tecnicos[i];
+              }
+            }
+            vm.selectedTecnico = foundItem;
           }, function (error) {
             alert("ERROR");
           });
       }
 
-      function getClientes(){
-        api.getClientes().then(
-          function (response) {
-            vm.clientes = response.data;
-          }, function (error) {
-            alert("ERROR");
-          });
-      }
 
-      function getTiposOT(){
-        api.getTiposOT().then(
-          function (response) {
-            vm.types = response.data;
-          }, function (error) {
-            alert("ERROR");
-          });
-      }
+
+
 
 
       /**
@@ -65,8 +63,13 @@
       function init()
       {
         getTecnicos();
-        getClientes();
-        getTiposOT();
+
+        for (var i = 0 ; i< vm.types.length ; i++){
+          if (vm.ot.estado == vm.types[i].descripcion){
+            vm.estadoactual=i;
+          }
+        }
+        vm.type = vm.types[vm.estadoactual].id;
       }
 
       /**
@@ -74,18 +77,38 @@
        */
       function saveOt()
       {
-        vm.otToSend = {
-          cliente_sk: vm.selectedCliente.sk,
-          tecnico_sk: vm.selectedTecnico.sk,
-          descripcion: vm.to.description.replace(/<p>/g , "").replace(/<\/p>/g,""),
-          tipo_id: vm.type
-        };
-        api.guardarOT(vm.otToSend).then(
-          function (response) {
-            $state.go('app.serviciotecnico_ot');
-          }, function (error) {
-            alert("ERROR");
-          });
+
+          vm.otToSend = {
+            ot_id: vm.ot.id,
+            tecnico_sk: vm.selectedTecnico.sk
+          };
+          api.guardarOTEditada(vm.otToSend).then(
+            function (response) {
+              if(vm.type != vm.estadoactual+1){
+                vm.statusToSend = {
+                  ot_id: vm.ot.id,
+                  estado_sk: vm.type,
+                  comentarios: vm.to.description.replace(/<p>/g , "").replace(/<\/p>/g,"")
+                };
+
+                api.guardarEstadoOT(vm.statusToSend).then(
+                  function (response) {
+                    $state.go('app.serviciotecnico_ot');
+                  }, function (error) {
+                    alert("ERROR");
+                  });
+              }else{
+                $state.go('app.serviciotecnico_ot');
+              }
+
+
+            }, function (error) {
+              alert("ERROR");
+            });
+
+
+
+
 
       }
 
