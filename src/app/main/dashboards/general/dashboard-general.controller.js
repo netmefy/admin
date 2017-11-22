@@ -170,8 +170,12 @@
             xAxis: {
               showMaxMin: false,
               tickFormat: function (d) {
-
-                var date = new Date(new Date().setDate(new Date(vm.chart5StartDate).getDate() + d));
+                var diaAtomar = new Date();
+                diaAtomar.setYear(vm.chart5StartDate.substr(0, 4));
+                diaAtomar.setMonth(vm.chart5StartDate.substr(5, 2)-1);
+                diaAtomar.setDate(vm.chart5StartDate.substr(8, 2));
+                //"2017-05-22T00:00:00"
+                var date = new Date(diaAtomar.setDate(diaAtomar.getDate() + d -1));
                 return d3.time.format('%d %b %y')(date);
               }
             },
@@ -181,7 +185,11 @@
             x2Axis: {
               showMaxMin: false,
               tickFormat: function (d) {
-                var date = new Date(new Date().setDate(new Date(vm.chart5StartDate).getDate() + d));
+                var diaAtomar = new Date();
+                diaAtomar.setYear(vm.chart5StartDate.substr(0, 4));
+                diaAtomar.setMonth(vm.chart5StartDate.substr(5, 2)-1);
+                diaAtomar.setDate(vm.chart5StartDate.substr(8, 2));
+                var date = new Date(diaAtomar.setDate(diaAtomar.getDate() + d -1));
                 return d3.time.format('%d %b %y')(date);
               }
             },
