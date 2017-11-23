@@ -87,13 +87,13 @@
 
       }
       refreshGoogleMaps();
-      vm.reclamosTickerInterval = $interval(function () {
+      vm.reclamosTickerInterval2 = $interval(function () {
         refreshGoogleMaps();
       }, 15000);
 
       // Cleanup
       $scope.$on('$destroy', function () {
-        $interval.cancel(vm.reclamosTickerInterval);
+        $interval.cancel(vm.reclamosTickerInterval2);
       });
     }
 

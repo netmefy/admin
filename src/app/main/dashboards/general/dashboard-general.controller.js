@@ -506,7 +506,7 @@
           },
           {
             // Target the quantity column
-            targets: 1,
+            targets: 0,
             render : function (data, type)
             {
               if ( type === 'display' )
@@ -557,7 +557,7 @@
         columnDefs: [
           {
             width  : '5%',
-            targets: [0, ]
+            targets: [0 ]
           }
         ],
         columns   : [
@@ -679,7 +679,7 @@
         // Set interval
         vm.reclamosTickerInterval = $interval(function () {
           reclamosTicker();
-        }, 1000);
+        }, 8000);
 
         // Cleanup
         $scope.$on('$destroy', function () {
