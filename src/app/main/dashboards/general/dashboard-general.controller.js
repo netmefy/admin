@@ -34,6 +34,7 @@
       }
     ];
     vm.selectedZone = vm.zones[0];
+    vm.showProgrees = true;
 
     vm.selectZone = selectZone;
     vm.widget10= {
@@ -53,9 +54,9 @@
     };
 
     function selectZone(zone) {
+      vm.showProgrees = true;
       $interval.cancel(vm.reclamosTickerInterval);
       vm.selectedZone = zone;
-      vm.widget1.init();
       vm.widget2.init();
       vm.widget3.init();
       vm.widget4.init();
@@ -63,6 +64,7 @@
       vm.widget6.init();
       vm.widget7.init();
       vm.widget8.init();
+      vm.widget1.init();
       getTecnicos();
     }
 
@@ -636,7 +638,7 @@
       init: function () {
         // Run this function once to initialize the widget
         $interval.cancel(vm.reclamosTickerInterval);
-
+        vm.widget1.cantidadClientes = "-";
         vm.widget1.value = null;
         vm.widget2.value = null;
         vm.widget3.velocidad = null;
@@ -669,7 +671,7 @@
               vm.widget6.cantidadClientes = response.data.cantidadClientes;
               vm.widget7.edadPromedio = response.data.edadPromedio;
               vm.widget8.dispositivos = response.data.dispositivos;
-
+              vm.showProgrees = false;
             }, function (error) {
               alert("ERROR");
             });
@@ -679,7 +681,7 @@
         // Set interval
         vm.reclamosTickerInterval = $interval(function () {
           reclamosTicker();
-        }, 8000);
+        }, 3000);
 
         // Cleanup
         $scope.$on('$destroy', function () {
